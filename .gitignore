@@ -1,1 +1,4 @@
 /homeworkEight.iml
+*.class
+*.iml
+/.idea/
