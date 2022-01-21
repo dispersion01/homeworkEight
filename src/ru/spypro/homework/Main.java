@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-        System.out.println("Задание 1");
+
         excerciseOne();
         exerciseTwo();
         exerciseThree();
@@ -17,24 +17,20 @@ public class Main {
 
     // решение первого задания
     public static void excerciseOne() { //выввод ответа
+        System.out.println("Задание 1");
         int year = 2008;
         conditionYear(year);
     }
 
-    public static int getYear(int year) {
-
-        return year;
-    }
-
     public static void conditionYear(int year) { //проверка года на високосность
-        if (calculationYear(year)) {
+        if (isYearLeap(year)) {
             System.out.println(year + " год является високосным");
         } else {
             System.out.println(year + " год не является високосным");
         }
     }
 
-    public static boolean calculationYear(int year) {
+    public static boolean isYearLeap(int year) {
         return ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
     }
 
@@ -54,10 +50,27 @@ public class Main {
     public static int getOS(int clientOS) { // инициализация ос устройств 1 и 0
         return clientOS;
     }
-
-    public static void applicationDeffer(int clientDeviceYear, int clientOS) { //условие при котором отображаются сообщения
+    public static void applicationDeffer(int clientDeviceYear, int clientOS) { // второй вариат объявления метода
         if (clientOS == 0) {
-            if (clientDeviceYear < 2015) {
+            checkIfDeviceOld(clientDeviceYear);
+            System.out.println("iOS");
+        } else if (clientOS == 1) {
+            checkIfDeviceOld(clientDeviceYear);
+            System.out.println("Android");
+        }
+    }
+
+    private static void checkIfDeviceOld(int conditionApp) { //условие устройства для второго варианта метода
+        if (conditionApp < 2015) {
+            System.out.print("Установите облегченную версию приложения для ");
+        } else {
+            System.out.print("Установите версию приложения для ");
+        }
+    }
+ /*   второй вариант объявления метода
+        public static void applicationDeffer(int conditionApp, int clientOS) { //условие при котором отображаются сообщения
+        if (clientOS == 0) {
+            if (conditionApp) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             } else {
                 System.out.println("Установите версию приложения для iOS по ссылке");
@@ -70,15 +83,13 @@ public class Main {
             }
         }
 
-    }
+    }*/
 
     public static boolean conditionApp(int clientDeviceYear, int clientOS) { //условие для года устройства
         return (clientDeviceYear < 2015);
     }
 
-    public static boolean conditionOs(int clientOS) { //условие для устройства
-        return (clientOS == 0);
-    }
+
 
     //решение третьего задания
     public static void exerciseThree() {
@@ -88,13 +99,7 @@ public class Main {
         conditionDelivery(deliveryDistance, deliveryTime);
     }
 
-    public static int getDistance(int deliveryDistance) {
-        return deliveryDistance;
-    }
 
-    public static int getTime(int deliveryTime) {
-        return deliveryTime;
-    }
 
     public static void conditionDelivery(int deliveryDistance, int deliveryTime) {
         if (deliveryDistance <= 20) {
@@ -111,10 +116,6 @@ public class Main {
         System.out.println("Задание 4");
         String signs = "aabccddefgghiijjkk";
         checkString(signs.toCharArray());
-    }
-
-    public static String getSign(String signs) {
-        return String.valueOf(signs.toCharArray());
     }
 
     public static void checkString(char[] signs) {
@@ -136,12 +137,9 @@ public class Main {
         reverseMethod(reverseArr);
     }
 
-    public static char[] getBackwards(char[] reverseArr) {
-        return reverseArr;
-    }
 
     public static void reverseMethod(char[] reverseArr) {
-        for (int i = reverseArr.length-1; i >= 0; i--) {
+        for (int i = reverseArr.length - 1; i >= 0; i--) {
             System.out.print(reverseArr[i]);
         }
     }
